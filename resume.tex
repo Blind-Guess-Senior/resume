@@ -1,0 +1,167 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2024 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\moderncvcolor{black}
+\moderncvstyle[]{banking}
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\usepackage{hyperref}
+
+% adjust the page margins
+\usepackage[hmargin=0.5in,vmargin=10pt]{geometry}
+
+% font loading
+% for luatex and xetex, do not use inputenc and fontenc
+% see https://tex.stackexchange.com/a/496643
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage{FiraSans}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Fira Sans}
+  \setsansfont[ItalicFont={Fira Sans Light Italic},
+            BoldFont={Fira Sans Bold},
+            BoldItalicFont={Fira Sans Italic}]
+            {Fira Sans Light}
+  % \setmonofont{Latin Modern Mono}
+  \setmonofont{Monaspace Neon}
+  \setmathfont{Latin Modern Math}
+
+  % you may also consider Fira Sans Light for a extra modern look
+  %\setsansfont[ItalicFont={Fira Sans Light Italic},%
+  %           BoldFont={Fira Sans},%
+  %           BoldItalicFont={Fira Sans Italic}]%
+  %           {Fira Sans Light}%
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
+
+\usepackage{setspace}
+\linespread{1.5}
+
+% personal data
+\name{\textmd{\textsc{ShengQiao}}}{\textmd{\textsc{Wu}}}
+\phone[mobile]{+86~159~8583~0350}
+\email{Blind-Guess-Senior@outlook.com}
+\homepage{https://blind-guess-senior.github.io/}
+
+\social[github]{Blind-Guess-Senior}
+
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Education}  % for 'contemporary' style use optional argument for displaying an icon, e.g. \section[\faGraduationCap]{Education}
+\cventry{2024 -- present}{Undergraduate | \textit{Computer Science}}{ShanghaiTech University}{\textit{Shanghai, China}}{}{}  % arguments 3 to 6 can be left empty
+% \cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+
+\section{Skills}
+\cvitem{Languages}{C\# | C/C++ | Javascript/Typescript | OCaml | Python | LaTeX}
+
+\section{Competitions}
+\cventry{Oct 2022}{CCF Certified Software Professional Senior (CSP-S), Round 2}{CCF CSP-S, Round 2 \textmd{\textsc{| Second Prize}}}{C++, Argorithm}{}{}
+\cventry{Oct 2022}{CCF Certified Software Professional Senior (CSP-S), Round 1}{CCF CSP-S, Round 1 \textmd{\textsc{| Second Prize}}}{C++, Argorithm}{}{}
+
+\section{Games}
+\cventry{Jul 2026}{\textcolor[RGB]{128,128,128}{A 2D rhythm game with a quirky input method: smashing the keyboard.}}{KBre \textmd{\textsc{| Team Project}}}{Unity}{}{
+  \vspace{0.2em}
+  Role: Lead Programmer; Team of 5
+  \vspace{0.1em}
+  \begin{itemize}
+    \item Players control movement and attacks using keyboard-smashing input patterns such as simple smashes, slides, and double smashes; timing these inputs to the beat increases damage and reduces resource costs.
+    \item I designed the overall code architecture and implemented the event system, input-pattern recognition system, scene object logic, scene management, and enemy state machines.
+  \end{itemize}}
+\vspace{0.4em}
+
+\cventry{Jul 2025}{\textcolor[RGB]{128,128,128}{A 2D linear platformer with ability-gated progression.}}{C-17ES-α \textmd{\textsc{| Course Project}}}{Unity}{}{
+  \vspace{0.2em}
+  Role: Lead Programmer; Team of 5
+  \vspace{0.1em}
+  \begin{itemize}
+    \item The player starts with only the ability to move right, gradually unlocking left, up and down movement as they progress. Each direction provides a unique special effect, and the player must strategically use these effects to overcome obstacles and complete levels.
+    \item I designed the overall code architecture and implemented the event system, movement ability system, and interactive scene objects.
+  \end{itemize}}
+\vspace{0.4em}
+
+\section{Projects}
+\cventry{Mar 2026 -- present}{\textcolor[RGB]{128,128,128}{A compile-based, simple yet powerful dialogue library for Unity.}}{Artifact Dialoguer \textmd{\textsc{| Personal}}}{C\#, .NET, Unity}{}{
+  \vspace{0.2em}
+  \begin{itemize}
+    \item I designed a concise and unambiguous dialogue script syntax, and implemented an LL(1) parser to compile it into Unity ScriptableObjects.
+    \item I implemented a runtime controller that reads the compiled data and controls dialogue progression during gameplay.
+  \end{itemize}
+}
+
+\cventry{Feb 2026 -- present}{\textcolor[RGB]{128,128,128}{A less-dependent Unity tool library.}}{Artifact Unity Utils \textmd{\textsc{| Personal}}}{C\#, .NET, Unity}{}{
+  \vspace{0.2em}
+  \begin{itemize}
+    \item I implemented some useful design patterns and data structures in .NET, including an event-bus based event system, dependency injection, quadtree and so on.
+  \end{itemize}
+}
+\vspace{0.4em}
+
+\cventry{Sep 2025 -- Jan 2026}{\textcolor[RGB]{128,128,128}{A simple language compiler for the OATC language.}}{OATC Language Compiler \textmd{\textsc{| Personal}}}{OCaml, LLVM, X86lite}{}{
+  \vspace{0.2em}
+  \begin{itemize}
+    \item I implemented an X86lite instruction set simulator and assembler. And the OATC language interpreter using OCaml.
+    \item I've also developed the compiler from LLVMlite IR to X86lite platform with frontend from OATC to LLVMlite IR.
+  \end{itemize}
+}
+\vspace{0.4em}
+
+\cventry{Feb 2025 -- Jun 2025}{\textcolor[RGB]{128,128,128}{An operating system for the 80x86 architecture.}}{PintOS \textmd{\textsc{| Personal}}}{C, x86 Assembly}{}{
+  \vspace{0.2em}
+  \begin{itemize}
+    \item I implemented the advanced scheduling, system call, user/kernel mode, virtual memory and file system of the operating system.
+    \item PintOS contains basic shell and filesystem, and is able to run programs in user mode.
+  \end{itemize}
+}
+\vspace{0.4em}
+% \vspace{0.5em}
+
+% Detailed achievements:
+% \begin{itemize}
+% \item Achievement 1
+% \item Achievement 2 (with sub-achievements)
+%   \begin{itemize}
+%   \item Sub-achievement (a);
+%   \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
+%     \begin{itemize}
+%     \item Sub-sub-achievement i;
+%     \item Sub-sub-achievement ii;
+%     \item Sub-sub-achievement iii;
+%     \end{itemize}
+%   \item Sub-achievement (c);
+%   \end{itemize}
+% \item Achievement 3
+% \item Achievement 4
+% \end{itemize}}
+% \cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2\newline{}Description line 3}
+% \subsection{Miscellaneous}
+% \cventry{year--year}{Job title}{Employer}{City}{}{Description}
+
+\clearpage
+
+\end{document}
+
+
+%% end of file `template.tex'.
