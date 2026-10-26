@@ -1,0 +1,121 @@
+%% start of file `cv-wushengqiao-moderncv-mihoyo.tex'.
+\documentclass[10pt,a4paper,sans]{moderncv}
+
+\moderncvcolor{black}
+\moderncvstyle[]{banking}
+\nopagenumbers{}
+
+\usepackage{hyperref}
+\usepackage[hmargin=0.48in,top=14pt,bottom=14pt]{geometry}
+
+% font loading
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage{FiraSans}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Fira Sans}
+  \setsansfont[ItalicFont={Fira Sans Light Italic},
+            BoldFont={Fira Sans Bold},
+            BoldItalicFont={Fira Sans Italic}]
+            {Fira Sans Light}
+  \setmonofont{Monaspace Neon}
+  \setmathfont{Latin Modern Math}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[UTF8,scheme=plain]{ctex}
+\setCJKmainfont{SimHei}
+\setCJKsansfont{SimHei}
+
+\usepackage{setspace}
+\usepackage{needspace}
+\linespread{1.12}
+
+% Compact headings and whitespace for moderncv's banking style
+\renewcommand*{\namefont}{\fontsize{20}{22}\selectfont\bfseries\upshape}
+\renewcommand*{\sectionfont}{\fontsize{13}{15}\selectfont\bfseries\upshape}
+
+\patchcmd{\makecvhead}{\vspace{2.5em}}{\vspace{0.8em}}
+  {}{\PackageError{cv-layout}{Could not adjust title spacing}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{2.5ex}}{\addvspace{1.2ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing before}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{1ex}}{\addvspace{0.4ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing after}{}}
+
+% personal data
+\name{\textmd{\textsc{吴胜桥}}}{}
+\phone[mobile]{+86~159~8583~0350}
+\email{Blind-Guess-Senior@outlook.com}
+\homepage{blind-guess-senior.github.io}
+\social[github]{Blind-Guess-Senior}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\makecvtitle
+
+\section{教育经历}
+\cventry{2024 -- 至今}{本科 | \textit{计算机科学与技术}}{上海科技大学}{\textit{中国 上海}}{}{}
+\vspace{-0.3em}
+\begin{itemize}
+  \item \textbf{修读核心课程}：操作系统、编译原理、计算机网络、数据结构与算法、程序分析等。
+\end{itemize}
+
+\section{项目经历}
+
+\cventry{2026.10}{\textcolor[RGB]{128,128,128}{聚光灯 GameJam 参赛项目}}{Quququ（\href{https://github.com/Blind-Guess-Senior/Quququ}{GitHub} / \href{https://doc.rhynicstudio.club/vmIbuBNCSL6k_wXXfVtCfA}{架构文档}）}{Unity, C\#}{}{
+  \vspace{-0.3em}
+  \begin{itemize}
+    \item \textbf{角色架构设计}：设计并实现类似 GAS 的 AMP\&PHI 模块化角色架构，采用阶段 Hook 机制与结算单元彻底解耦角色表现、状态机与战斗结算，支持复杂插件效果自由组合。
+    \item \textbf{技术统筹}：制定团队代码规范与底层接口协议，拆解跟进 2 名程序协作任务，主导完成核心战斗管线落地。
+  \end{itemize}}
+\vspace{0.2em}
+
+\cventry{2026.02 -- 至今}{\textcolor[RGB]{128,128,128}{个人游戏开发工具库}}{Artifact Game Toolkit（\href{https://github.com/Blind-Guess-Senior/ArtifactDialoguer}{Dialoguer} / \href{https://github.com/Blind-Guess-Senior/Unity-Utils}{Unity-Utils}）}{C\#, .NET, Unity}{}{
+  \vspace{-0.3em}
+  \begin{itemize}
+    \item \textbf{预编译对话系统（Dialoguer）}：自研无歧义剧情脚本语法规范，手写实现 LL(1) 语法解析器，将脚本编译为 Unity ScriptableObject 序列化资产；实现运行时对话控制器，驱动低 GC、高响应的分支剧情流。
+    \item \textbf{通用基础设施（Unity-Utils）}：封装轻量高性能事件总线（EventBus）、IoC 依赖注入容器、分层有限状态机（HFSM）及用于空间索引的四叉树（QuadTree）数据结构。
+  \end{itemize}}
+\vspace{0.2em}
+
+\cventry{2025.02 -- 2025.06}{\textcolor[RGB]{128,128,128}{面向 x86 架构的教学操作系统 | 核心开发者}}{PintOS}{C, x86 Assembly}{}{
+  \vspace{-0.3em}
+  \begin{itemize}
+    \item \textbf{内核核心模块}：基于 x86 架构实现优先级调度算法与同步互斥机制，设计系统调用（Syscall）接口规范。
+    \item \textbf{内存与文件系统}：实现虚拟内存分页管理、按需缺页置换与缺页异常处理机制；搭建基础用户态/内核态隔离与支持用户态程序运行的 Shell 运行时。
+  \end{itemize}}
+\vspace{0.2em}
+
+\cventry{2026.07}{\textcolor[RGB]{128,128,128}{节奏打击 2D 动作游戏 | 主程 (5人团队)}}{\href{https://github.com/Blind-Guess-Senior/KBre}{KBre}}{Unity, C\#}{}{
+  \vspace{-0.3em}
+  \begin{itemize}
+    \item \textbf{输入识别与容差判定}：设计针对键盘“拍击、滑动、连拍”的多输入模式识别器，实现输入缓冲队列与音频节拍对齐的高精度容差判定算法。
+    \item \textbf{解耦架构搭建}：基于事件驱动架构组织关卡与场景对象，实现状态解耦的敌人状态机与动态节拍战斗反馈。
+  \end{itemize}}
+
+\section{工作经历}
+\cventry{2026.05 -- 至今}{\textcolor[RGB]{128,128,128}{后端开发实习生}}{影眸科技}{\textit{上海}}{}{
+  \vspace{-0.3em}
+  \begin{itemize}
+    \item 负责海外广告事件多平台回传链路重构与支付服务开发，掌握规范的工业级敏捷协作、接口联调与 CI/CD 流程。
+  \end{itemize}}
+
+\section{比赛经历}
+\cventry{2022.10}{CCF 非专业级软件能力认证提高组（CSP-S） 全国二等奖}{CCF CSP-S 第二轮}{C++, 算法与数据结构}{}{}
+
+\section{专业技能}
+\cvitem{编程语言}{\textbf{C/C++}（掌握内存模型、指针操作、RAII、现代特性）、\textbf{C\#}（熟悉 GC 机制、装箱拆箱、泛型与反射开销）、Python、TypeScript}
+\cvitem{引擎与框架}{\textbf{Unity}（深入理解组件化生命周期、ScriptableObject 架构、UGUI、状态机及基础性能优化）、.NET、Git}
+\cvitem{计算机基础}{扎实掌握操作系统（进程调度、虚拟内存、系统调用）、编译原理（词法语法分析）、数据结构与算法、计算机网络}
+
+\section{个人评价}
+热衷于游戏客户端工业化生产管线与高性能系统开发。具备扎实的操作系统及底层语言功底，擅长从底层视角排查与解决性能痛点；具有多次 GameJam 带队与团队主程经验，具备良好的跨职能沟通与系统架构解耦能力。
+
+\end{document}

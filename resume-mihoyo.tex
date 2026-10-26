@@ -1,0 +1,165 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2024 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\moderncvcolor{black}
+\moderncvstyle[]{banking}
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\usepackage{hyperref}
+
+% adjust the page margins
+\usepackage[hmargin=0.5in,vmargin=10pt]{geometry}
+
+% font loading
+% for luatex and xetex, do not use inputenc and fontenc
+% see https://tex.stackexchange.com/a/496643
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage{FiraSans}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Fira Sans}
+  \setsansfont[ItalicFont={Fira Sans Light Italic},
+            BoldFont={Fira Sans Bold},
+            BoldItalicFont={Fira Sans Italic}]
+            {Fira Sans Light}
+  % \setmonofont{Latin Modern Mono}
+  \setmonofont{Monaspace Neon}
+  \setmathfont{Latin Modern Math}
+
+  % you may also consider Fira Sans Light for a extra modern look
+  %\setsansfont[ItalicFont={Fira Sans Light Italic},%
+  %           BoldFont={Fira Sans},%
+  %           BoldItalicFont={Fira Sans Italic}]%
+  %           {Fira Sans Light}%
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[UTF8,scheme=plain]{ctex}  % FIXME: using spanish breaks moderncv
+\setCJKmainfont{SimHei}
+\setCJKsansfont{SimHei}
+% \setCJKmainfont{Noto Sans CJK SC}
+% \setCJKsansfont{Noto Sans CJK SC}
+
+\usepackage{setspace}
+\usepackage{needspace}
+\linespread{1.15}
+
+% Compact headings and whitespace for moderncv's banking style.
+\renewcommand*{\namefont}{\fontsize{24}{24}\selectfont\bfseries\upshape}
+\renewcommand*{\sectionfont}{\fontsize{16}{14}\selectfont\bfseries\upshape}
+
+\patchcmd{\makecvhead}{\vspace{2.5em}}{\vspace{1.5em}}
+  {}{\PackageError{cv-layout}{Could not adjust title spacing}{}}
+% This moderncv version defines section with xparse; patch its code macro.
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{2.5ex}}{\addvspace{2ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing before}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{1ex}}{\addvspace{0.5ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing after}{}}
+
+% personal data
+\name{\textmd{\textsc{吴胜桥}}}{}
+\phone[mobile]{+86~159~8583~0350}
+\email{Blind-Guess-Senior@outlook.com}
+\homepage{https://blind-guess-senior.github.io/}
+
+\social[github]{Blind-Guess-Senior}
+
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+% \begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{教育经历}  % for 'contemporary' style use optional argument for displaying an icon, e.g. \section[\faGraduationCap]{Education}
+\cventry{2024 -- 至今}{本科 | \textit{计算机科学与技术}}{上海科技大学}{\textit{中国 上海}}{}{}  % arguments 3 to 6 can be left empty
+
+\vspace{0.5em}
+在校期间已经修读操作系统、编译原理、计算机网络、程序分析等课程。
+
+\needspace{8\baselineskip}
+\section{项目经历}
+\cventry{2026.10}{\textcolor[RGB]{128,128,128}{2026 聚光灯 GameJam 参赛项目} \textcolor[RGB]{84,174,255}{\href{https://github.com/Blind-Guess-Senior/Quququ}{Link}}}{Quququ \textmd{\textsc{| 团队项目}}}{Unity}{}{
+  \begin{itemize}
+    \item 设计并实现 AMP\&PHI 模块化角色架构及角色组装器，通过阶段 Hook 与结算单元支持插件组合和交互
+    \item 拆分并跟进另外 2 名程序的开发任务，统筹接口与进度，团队完成完整作战流程及部分插件
+  \end{itemize}}
+% \vspace{0.1em}
+
+\needspace{4\baselineskip}
+\cventry{2026.07}{\textcolor[RGB]{128,128,128}{以“拍键盘”为核心输入的2D节奏游戏}  \textcolor[RGB]{84,174,255}{\href{https://github.com/Blind-Guess-Senior/KBre}{Link}}}{KBre \textmd{\textsc{| 团队项目}}}{Unity}{}{
+  \begin{itemize}
+    \item 玩家以“拍键盘”的方式控制角色移动、攻击。拍击、滑动、连续拍击等输入模式有各自的特殊效果。玩家需要配合游戏节拍输入以提高攻击伤害并降低资源消耗
+    \item 设计整体代码框架，设计并实现事件系统、输入模式、场景物体、场景控制、敌人状态机等
+  \end{itemize}}
+% \vspace{0.1em}
+
+\needspace{4\baselineskip}
+\cventry{2026.03 -- 至今}{\textcolor[RGB]{128,128,128}{基于预编译对话脚本的 Unity 对话系统库} \textcolor[RGB]{84,174,255}{\href{https://github.com/Blind-Guess-Senior/ArtifactDialoguer}{Link}}}{Artifact Dialoguer \textmd{\textsc{| 个人项目}}}{C\#, .NET, Unity}{}{
+  \begin{itemize}
+    \item 设计简洁且无歧义的对话脚本语法，并实现 LL(1) 语法解析器将其编译为 Unity ScriptableObject
+    \item 实现 Unity 内的运行时对话控制器，读取编译产物并驱动游戏内对话流程
+  \end{itemize}
+}
+% \vspace{0.1em}
+
+\needspace{4\baselineskip}
+\cventry{2026.02 -- 至今}{\textcolor[RGB]{128,128,128}{轻量 Unity 工具库} \textcolor[RGB]{84,174,255}{\href{https://github.com/Blind-Guess-Senior/Unity-Utils}{Link}}}{Artifact Unity Utils \textmd{\textsc{| 个人项目}}}{C\#, .NET, Unity}{}{
+  \begin{itemize}
+    \item 基于 C\# 和 .NET 实现事件总线、依赖注入、有限状态机等通用架构与四叉树等数据结构
+  \end{itemize}
+}
+% \vspace{0.1em}
+
+\needspace{4\baselineskip}
+\cventry{2025.07}{\textcolor[RGB]{128,128,128}{2D能力锁平台跳跃游戏} \textcolor[RGB]{84,174,255}{\href{https://github.com/Blind-Guess-Senior/C-17ES-CosmicHeart}{Link}}}{C-17ES-α \textmd{\textsc{| 团队项目}}}{Unity}{}{
+  \begin{itemize}
+    \item 玩家随流程逐步解锁四个方向的移动。不同方向的移动具有不同效果，玩家需要组合运用能力完成关卡
+    \item 设计整体代码框架，设计并实现事件系统、移动能力、场景内交互物体等
+  \end{itemize}}
+% \vspace{0.1em}
+
+% \needspace{8\baselineskip}
+\section{工作经历}
+\cventry{2026.05 -- 至今}{\textcolor[RGB]{128,128,128}{后端开发}}{影眸科技 \textmd{\textsc{| 实习}}}{\textit{上海}}{}{
+  \begin{itemize}
+    \item 接入多个广告事件回传平台，重构回传逻辑，提高准确性与灵活性
+    \item 开发支付流程后端，实现订阅及支付相关新功能
+  \end{itemize}}
+% \vspace{0.1em}
+
+% \needspace{3\baselineskip}
+\section{比赛经历}
+\cventry{2022.10}{CCF 非专业级软件能力认证提高组（CSP-S） 第二轮}{CCF CSP-S 第二轮 \textmd{\textsc{| 二等奖}}}{C++, Algorithm}{}{}
+
+% \needspace{3\baselineskip}
+\section{专业技能}
+\cvitem{语言}{C\# | C/C++ | Javascript/Typescript | Nix | OCaml | Python | LaTeX}
+\cvitem{引擎与框架}{Unity | .NET | React}
+
+\section{个人情况}
+
+热衷于游戏客户端工业化生产管线和高性能工具开发。热爱钻研操作系统和语言底层知识，并致力于以更本质的角度解决痛点问题。在多个项目中带队开发，积累了丰富的工程实践经验和项目管理经验。追求在任何场景下高效率地打造可信的生产力系统。
+
+\clearpage
+
+\end{document}
+
+
+%% end of file `template.tex'.

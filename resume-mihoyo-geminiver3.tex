@@ -1,0 +1,129 @@
+%% start of file `cv-wushengqiao-moderncv-mihoyo.tex'.
+\documentclass[10pt,a4paper,sans]{moderncv}
+
+\moderncvcolor{black}
+\moderncvstyle[]{banking}
+\nopagenumbers{}
+
+% 全局统一超链接配置：采用 GitHub 官方标准深蓝色，克制且具指示性
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=[RGB]{9,105,218},
+    linkcolor=[RGB]{9,105,218}
+}
+
+\usepackage[hmargin=0.48in,top=14pt,bottom=14pt]{geometry}
+
+% font loading
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage{FiraSans}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Fira Sans}
+  \setsansfont[ItalicFont={Fira Sans Light Italic},
+            BoldFont={Fira Sans Bold},
+            BoldItalicFont={Fira Sans Italic}]
+            {Fira Sans Light}
+  \setmonofont{Monaspace Neon}
+  \setmathfont{Latin Modern Math}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[UTF8,scheme=plain]{ctex}
+\setCJKmainfont{SimHei}
+\setCJKsansfont{SimHei}
+
+\usepackage{setspace}
+\linespread{1.12}
+
+% Compact headings
+\renewcommand*{\namefont}{\fontsize{19}{21}\selectfont\bfseries\upshape}
+\renewcommand*{\sectionfont}{\fontsize{12.5}{14}\selectfont\bfseries\upshape}
+
+\patchcmd{\makecvhead}{\vspace{2.5em}}{\vspace{0.6em}}
+  {}{\PackageError{cv-layout}{Could not adjust title spacing}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{2.5ex}}{\addvspace{1.5ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing before}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{1ex}}{\addvspace{0.5ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing after}{}}
+
+% personal data
+\name{\textmd{\textsc{吴胜桥}}}{}
+\phone[mobile]{+86~159~8583~0350}
+\email{Blind-Guess-Senior@outlook.com}
+\homepage{blind-guess-senior.github.io}
+\social[github]{Blind-Guess-Senior}
+
+\begin{document}
+\makecvtitle
+
+\section{教育经历}
+\cventry{2024 -- 至今}{本科 | \textit{计算机科学与技术}}{上海科技大学}{\textit{中国 上海}}{}{}
+\vspace{-0.25em}
+在校期间修读操作系统、编译原理、计算机网络、程序分析、数据结构与算法等核心课程。
+
+\section{项目经历}
+
+\cventry{2026.10}{\textcolor[RGB]{128,128,128}{2026 聚光灯 GameJam 参赛项目 | 2026星图游戏嘉年华参展游戏}}{Quququ \textmd{\textsc{| 团队项目}} \enspace {\footnotesize\normalfont\href{https://github.com/Blind-Guess-Senior/Quququ}{[GitHub]}}}{Unity, C\#}{}{
+  主程、项目统筹
+  \begin{itemize}
+    \item 设计并实现模块化角色架构，通过阶段钩子（Hook）划分动作生命周期管线，由独立结算单元执行数值与状态演算，解耦表现层与战斗数值逻辑。
+    \item 实现角色组装器（Assembler），支持在运行时将技能与插件动态装配至角色实体；制定底层接口契约与数据结构规范，统筹程序进度完成核心作战流程集成。
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2026.07}{\textcolor[RGB]{128,128,128}{ChinaJoy AGS学院游戏展区参展游戏 | 以“拍键盘”为核心输入的 2D 节奏游戏}}{KBre \textmd{\textsc{| 团队项目}} \enspace {\footnotesize\normalfont\href{https://github.com/Blind-Guess-Senior/KBre}{[GitHub]}}}{Unity, C\#}{}{
+  主程
+  \begin{itemize}
+    \item 针对拍击、滑动、连续连按等复合输入设计模式识别状态机；结合音频节拍时间戳设计带有时间容差窗口的输入缓冲队列。
+    \item 搭建事件驱动架构，将音频节奏驱动、输入判定、角色行为控制与敌人状态机彻底解耦，保障动作响应性与表现流畅度。
+  \end{itemize}}
+
+\cventry{2026.03 -- 至今}{\textcolor[RGB]{128,128,128}{基于预编译对话脚本的 Unity 对话系统库}}{Artifact Dialoguer \textmd{\textsc{| 个人项目}} \enspace {\footnotesize\normalfont\href{https://github.com/Blind-Guess-Senior/ArtifactDialoguer}{[GitHub]}}}{C\#, .NET, Unity}{}{
+  \begin{itemize}
+    \item 定义基于上下文无关文法的无歧义对话脚本语法，手写词法分析器与递归下降 LL(1) 语法分析器生成抽象语法树（AST）。
+    \item 设计编译器后端，将 AST 编译为 Unity ScriptableObject 节点图资产；实现运行时解释驱动器，管理条件分支与变量绑定，消除运行时脚本解析开销。
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2026.02 -- 至今}{\textcolor[RGB]{128,128,128}{轻量 Unity 工具库}}{Artifact Unity Utils \textmd{\textsc{| 个人项目}} \enspace {\footnotesize\normalfont\href{https://github.com/Blind-Guess-Senior/Unity-Utils}{[GitHub]}}}{C\#, .NET, Unity}{}{
+  \begin{itemize}
+    \item 基于泛型与弱引用实现类型安全的低 GC 事件总线（Event Bus），封装支持分层嵌套的有限状态机（HFSM）与轻量依赖注入容器。
+    \item 实现适用于 2D 场景空间检索与碰撞粗筛的四叉树（QuadTree）数据结构，提升大范围对象检测性能。
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2025.02 -- 2025.06}{\textcolor[RGB]{128,128,128}{面向 80x86 架构的操作系统内核实现}}{PintOS \textmd{\textsc{| 课程项目}}}{C, x86 Assembly}{}{
+  \begin{itemize}
+    \item 实现基于优先级捐赠（Priority Donation）的线程调度算法，解决优先级反转问题；实现信号量、互斥锁与条件变量等内核同步原语。
+    \item 实现系统调用（Syscall）分发框架与用户态指针边界校验，建立内核态与用户态地址空间隔离机制。
+    \item 设计补充页表与帧表，实现按需分页（Demand Paging）、缺页异常处理与页置换算法，完善基础文件系统与用户态 Shell。
+  \end{itemize}}
+\vspace{0.15em}
+
+\section{工作经历}
+\cventry{2026.05 -- 至今}{\textcolor[RGB]{128,128,128}{后端开发}}{影眸科技 \textmd{\textsc{| 实习}}}{\textit{上海}}{}{
+  TypeScript, React
+  \begin{itemize}
+    \item 负责多平台海外广告事件回传链路重构，抽象统一回传接口以适配不同渠道回传规范，提升链路稳定性与灵活性。
+    \item 开发支付与订阅后端服务，设计状态机处理交易全生命周期的状态流转与异常补偿。
+  \end{itemize}}
+
+\section{专业技能}
+\cvitem{编程语言}{\textbf{C/C++}（掌握指针内存管理、RAII、现代 C++ 特性）、\textbf{C\#}（熟悉 GC 原理、装箱拆箱、泛型与反射开销）、TypeScript、Python、OCaml}
+\cvitem{引擎与框架}{\textbf{Unity}（深入理解组件生命周期、ScriptableObject 架构、状态机、事件驱动与基础性能调优）、.NET、React}
+\cvitem{计算机基础}{熟练掌握操作系统（进程调度、虚拟内存、系统调用）、编译原理（词法语法分析、AST）、数据结构与算法、计算机网络}
+
+\section{比赛经历}
+\cventry{2022.10}{CCF 非专业级软件能力认证提高组（CSP-S） 第二轮}{CCF CSP-S 第二轮 \textmd{\textsc{| 全国二等奖}}}{C++, Algorithm}{}{}
+
+\section{个人情况}
+热衷于游戏客户端工业化生产管线和高性能工具开发。热爱钻研操作系统和语言底层知识，并致力于以更本质的角度解决痛点问题。在多个项目中带队开发，积累了丰富的工程实践经验和项目管理经验。追求在任何场景下高效率地打造可信的生产力系统。
+
+\end{document}

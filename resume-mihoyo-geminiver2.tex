@@ -1,0 +1,126 @@
+%% start of file `cv-wushengqiao-moderncv-mihoyo.tex'.
+\documentclass[9.5pt,a4paper,sans]{moderncv}
+
+\moderncvcolor{black}
+\moderncvstyle[]{banking}
+\nopagenumbers{}
+
+\usepackage{hyperref}
+\usepackage[hmargin=0.5in,top=14pt,bottom=14pt]{geometry}
+
+% font loading
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage{FiraSans}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Fira Sans}
+  \setsansfont[ItalicFont={Fira Sans Light Italic},
+            BoldFont={Fira Sans Bold},
+            BoldItalicFont={Fira Sans Italic}]
+            {Fira Sans Light}
+  \setmonofont{Monaspace Neon}
+  \setmathfont{Latin Modern Math}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[UTF8,scheme=plain]{ctex}
+\setCJKmainfont{SimHei}
+\setCJKsansfont{SimHei}
+
+\usepackage{setspace}
+\linespread{1.12}
+
+% Compact headings
+\renewcommand*{\namefont}{\fontsize{20}{22}\selectfont\bfseries\upshape}
+\renewcommand*{\sectionfont}{\fontsize{13}{15}\selectfont\bfseries\upshape}
+
+\patchcmd{\makecvhead}{\vspace{2.5em}}{\vspace{0.6em}}
+  {}{\PackageError{cv-layout}{Could not adjust title spacing}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{2.5ex}}{\addvspace{1.0ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing before}{}}
+\ExpandArgs{c}\patchcmd{section code}{\addvspace{1ex}}{\addvspace{0.3ex}}
+  {}{\PackageError{cv-layout}{Could not adjust section spacing after}{}}
+
+% personal data
+\name{\textmd{\textsc{吴胜桥}}}{}
+\phone[mobile]{+86~159~8583~0350}
+\email{Blind-Guess-Senior@outlook.com}
+\homepage{https://blind-guess-senior.github.io/}
+\social[github]{Blind-Guess-Senior}
+
+\begin{document}
+\makecvtitle
+
+\section{教育经历}
+\cventry{2024 -- 至今}{本科 | \textit{计算机科学与技术}}{上海科技大学}{\textit{中国 上海}}{}{}
+\vspace{-0.2em}
+在校期间修读操作系统、编译原理、计算机网络、程序分析等核心课程。
+
+\section{核心项目}
+
+\cventry{2026.10}{\textcolor[RGB]{128,128,128}{2026 聚光灯 GameJam 参赛项目}}{\href{https://github.com/Blind-Guess-Senior/Quququ}{Quququ} \textmd{\textsc{| 团队项目}}}{Unity}{}{
+  \vspace{-0.2em}
+  主程、项目统筹 | 架构文档：\href{https://doc.rhynicstudio.club/vmIbuBNCSL6k_wXXfVtCfA}{AMP\&PHI}
+  \begin{itemize}
+    \item 设计并实现 AMP\&PHI 模块化角色架构及角色组装器，通过阶段钩子与结算单元支持插件组合和交互
+    \item 负责底层数据结构与接口契约制定，拆分并跟进程序开发任务，推进团队完成作战流程及插件落地
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2026.03 -- 至今}{\textcolor[RGB]{128,128,128}{基于预编译对话脚本的 Unity 对话系统库}}{\href{https://github.com/Blind-Guess-Senior/ArtifactDialoguer}{Artifact Dialoguer} \textmd{\textsc{| 个人项目}}}{C\#, .NET, Unity}{}{
+  \vspace{-0.2em}
+  \begin{itemize}
+    \item 设计简洁且无歧义的对话脚本语法，并实现 LL(1) 语法解析器将其编译为 Unity ScriptableObject
+    \item 实现 Unity 内的运行时对话控制器，读取编译产物并驱动游戏内对话流程与状态流转
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2026.02 -- 至今}{\textcolor[RGB]{128,128,128}{轻量 Unity 工具库}}{\href{https://github.com/Blind-Guess-Senior/Unity-Utils}{Artifact Unity Utils} \textmd{\textsc{| 个人项目}}}{C\#, .NET, Unity}{}{
+  \vspace{-0.2em}
+  \begin{itemize}
+    \item 基于 C\# 和 .NET 实现事件总线、依赖注入、有限状态机等通用架构与四叉树等数据结构
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2025.02 -- 2025.06}{\textcolor[RGB]{128,128,128}{面向80x86架构的操作系统}}{PintOS \textmd{\textsc{| 个人项目}}}{C, x86 Assembly}{}{
+  \vspace{-0.2em}
+  \begin{itemize}
+    \item 实现优先级调度与同步原语、系统调用分发、用户态/内核态隔离机制、虚拟内存分页及文件系统核心模块
+    \item 支持基础 shell 和文件系统，并可在用户态稳定运行测试程序
+  \end{itemize}}
+\vspace{0.15em}
+
+\cventry{2026.07}{\textcolor[RGB]{128,128,128}{以“拍键盘”为核心输入的2D节奏游戏}}{\href{https://github.com/Blind-Guess-Senior/KBre}{KBre} \textmd{\textsc{| 团队项目}}}{Unity}{}{
+  \vspace{-0.2em}
+  主程
+  \begin{itemize}
+    \item 设计整体代码框架，基于事件驱动解耦节拍调度、场景交互与敌人状态机
+    \item 实现多输入模式识别模块，结合节拍时间戳设计容差输入缓冲队列，准确识别拍击、滑动、连续拍击
+  \end{itemize}}
+
+\section{工作经历}
+\cventry{2026.05 -- 至今}{\textcolor[RGB]{128,128,128}{后端开发}}{影眸科技 \textmd{\textsc{| 实习}}}{\textit{上海}}{}{
+  \vspace{-0.2em}
+  TypeScript, React
+  \begin{itemize}
+    \item 接入多个广告事件回传平台，重构回传逻辑，提高准确性与灵活性
+    \item 开发支付流程后端，实现订阅及支付相关新功能
+  \end{itemize}}
+
+\section{专业技能}
+\cvitem{编程语言}{C/C++ | C\# | TypeScript | Python | OCaml}
+\cvitem{引擎与框架}{Unity | .NET | React}
+\cvitem{核心基础}{操作系统、编译原理、数据结构与算法、计算机网络}
+
+\section{比赛经历}
+\cventry{2022.10}{CCF 非专业级软件能力认证提高组（CSP-S） 第二轮}{CCF CSP-S 第二轮 \textmd{\textsc{| 二等奖}}}{C++, Algorithm}{}{}
+
+\section{个人情况}
+热衷于游戏客户端工业化生产管线和高性能工具开发。热爱钻研操作系统和语言底层知识，并致力于以更本质的角度解决痛点问题。在多个项目中带队开发，积累了丰富的工程实践经验和项目管理经验。追求在任何场景下高效率地打造可信的生产力系统。
+
+\end{document}

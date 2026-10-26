@@ -1,5 +1,9 @@
 {
-    "files.autoSave": "onFocusChange", "latex-workshop.latex.autoBuild.run": "onSave",
+    "files.autoSave": "onFocusChange",
+    "editor.unicodeHighlight.allowedLocales": {
+        "zh-hans": true
+    },
+    "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     "latex-workshop.showContextMenu": true,
     "latex-workshop.intellisense.package.enabled": true,
@@ -125,7 +129,8 @@
     ],
     "latex-workshop.latex.autoClean.run": "never",
     "latex-workshop.latex.recipe.default": "first",
-    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click","latex-workshop.latex.magic.args": [
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.latex.magic.args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
